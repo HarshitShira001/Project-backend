@@ -10,12 +10,18 @@ const connectDB = async () => {
     const conn = await mongoose.connect(
       `${process.env.MONGODB_URI}/${DB_NAME}`
     );
-    console.log(`MongoDB connected: ${conn.connection.host}`);
+    console.log(`\nMongoDB connected! Host: ${conn.connection.host}`);
+
+    app.on("error", (error) => {
+      console.error("Express app error:", error);
+      throw error;
+    });
+
     app.listen(PORT, () => {
-      console.log(`Server running on port ${PORT}`);
+      console.log(`Server running at http://localhost:${PORT}`);
     });
   } catch (error) {
-    console.error("MongoDB connection failed:", error.message);
+    console.error("MongoDB connection FAILED:", error.message);
     process.exit(1);
   }
 };
