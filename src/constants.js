@@ -22,3 +22,13 @@ export const REGEX = {
   PASSWORD: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d@$!%*#?&]{8,}$/,
   USERNAME: /^[a-zA-Z0-9_]{3,20}$/,
 };
+
+// Token settings
+export const TOKEN = {
+  ACCESS_EXPIRY: "1d",
+  REFRESH_EXPIRY: "10d",
+  COOKIE_OPTIONS: {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+  },
+};
