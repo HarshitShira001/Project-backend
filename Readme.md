@@ -6,36 +6,45 @@ A production-grade RESTful backend API built with Node.js, Express, and MongoDB.
 - **Runtime**: Node.js
 - **Framework**: Express.js
 - **Database**: MongoDB (Mongoose ODM)
-- **Auth**: JWT (Access + Refresh tokens)
+- **Auth**: JWT (Access + Refresh tokens) + Bcrypt
 - **File Upload**: Cloudinary + Multer
 - **Dev Tools**: Nodemon, Prettier, dotenv
+
+## Features
+- âœ… User registration and login
+- âœ… JWT-based access and refresh token auth
+- âœ… File upload with Cloudinary
+- âœ… MongoDB with Mongoose ODM
+- âœ… Global error handling
+- âœ… CORS and cookie support
 
 ## Project Structure
 ```
 src/
   app.js         - Express app configuration
   index.js       - Server entry point + DB connection
-  constants.js   - App-wide constants
+  constants.js   - App-wide constants and HTTP codes
 public/
   temp/          - Temporary file uploads
 ```
 
+## Environment Variables
+See `.envsample` for required environment variables.
+
 ## Getting Started
 ```bash
-# 1. Clone the repo
-git clone https://github.com/HarshitShira001/Project-backend.git
-cd Project-backend
-
-# 2. Install dependencies
 npm install
-
-# 3. Configure environment
 cp .envsample .env
-# Edit .env with your values
-
-# 4. Start development server
 npm run dev
 ```
 
-## API Base URL
-`http://localhost:8000/api/v1`
+## API Endpoints
+| Method | Endpoint              | Description         |
+|--------|-----------------------|---------------------|
+| GET    | /health               | Health check        |
+| POST   | /api/v1/users/register| Register user       |
+| POST   | /api/v1/users/login   | Login user          |
+| POST   | /api/v1/users/logout  | Logout user         |
+
+## License
+ISC
