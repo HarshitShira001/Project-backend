@@ -13,12 +13,13 @@ const connectDB = async () => {
     console.log(`\nMongoDB connected! Host: ${conn.connection.host}`);
 
     app.on("error", (error) => {
-      console.error("Express app error:", error);
+      console.error("Express server error:", error);
       throw error;
     });
 
     app.listen(PORT, () => {
-      console.log(`Server running at http://localhost:${PORT}`);
+      console.log(`\nServer is running at: http://localhost:${PORT}`);
+      console.log(`API Base URL: http://localhost:${PORT}/api/v1`);
     });
   } catch (error) {
     console.error("MongoDB connection FAILED:", error.message);
